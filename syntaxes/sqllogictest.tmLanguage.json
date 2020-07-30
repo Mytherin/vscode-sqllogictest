@@ -1,12 +1,15 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Sqllogictest",
+	"name": "sqllogictest",
 	"patterns": [
         { "include": "#comment" },
         { "include": "#halt" },
         { "include": "#hash-threshold" },
         { "include": "#kv-batch-size" },
         { "include": "#mode" },
+        { "include": "#require" },
+        { "include": "#loop" },
+        { "include": "#endloop" },
         { "include": "#onlyif" },
         { "include": "#query" },
         { "include": "#repeat" },
@@ -39,8 +42,30 @@
                 "2": { "name": "constant.numeric.sqllogictest" }
             }
         },
+        "loop": {
+            "match": "^(loop)\\s+([a-zA-Z-]+)\\s+([0-9]+)\\s+([0-9]+)",
+            "captures": {
+                "1": { "name": "keyword.other.sqllogictest" },
+                "2": { "name": "keyword.other.sqllogictest" },
+                "3": { "name": "constant.numeric.sqllogictest" },
+                "4": { "name": "constant.numeric.sqllogictest" }
+            }
+        },
+        "endloop": {
+            "match": "^(endloop)",
+            "captures": {
+                "1": { "name": "keyword.other.sqllogictest" }
+            }
+        },
+        "require": {
+            "match": "^(require)\\s+([a-zA-Z-]+)",
+            "captures": {
+                "1": { "name": "keyword.other.sqllogictest" },
+                "2": { "name": "keyword.other.sqllogictest" }
+            }
+        },
         "mode": {
-            "match": "^(mode)\\s+(cockroach|standard)",
+            "match": "^(mode)\\s+(cockroach|standard|output_hash|output_result)",
             "captures": {
                 "1": { "name": "keyword.other.sqllogictest" },
                 "2": { "name": "keyword.other.sqllogictest" }
@@ -110,7 +135,7 @@
                 "5": { "name": "keyword.other.sqllogictest" },
                 "6": { "name": "constant.numeric.sqllogictest" }
             },
-            "patterns": [{ "include": "source.mzsql" }]
+            "patterns": [{ "include": "source.sql" }]
         },
         "subtest": {
             "match": "^(subtest)\\s+(\\S+)",
