@@ -58,10 +58,11 @@
             }
         },
         "require": {
-            "match": "^(require)\\s+([a-zA-Z-]+)",
+            "match": "^(require)\\s+([a-zA-Z-_]+)\\s*([0-9]+)?",
             "captures": {
                 "1": { "name": "keyword.other.sqllogictest" },
-                "2": { "name": "keyword.other.sqllogictest" }
+                "2": { "name": "keyword.other.sqllogictest" },
+                "3": { "name": "constant.numeric.sqllogictest" }
             }
         },
         "mode": {
