@@ -8,6 +8,8 @@
         { "include": "#kv-batch-size" },
         { "include": "#mode" },
         { "include": "#require" },
+        { "include": "#restart" },
+        { "include": "#load" },
         { "include": "#loop" },
         { "include": "#endloop" },
         { "include": "#onlyif" },
@@ -63,6 +65,19 @@
                 "1": { "name": "keyword.other.sqllogictest" },
                 "2": { "name": "keyword.other.sqllogictest" },
                 "3": { "name": "constant.numeric.sqllogictest" }
+            }
+        },
+        "restart": {
+            "match": "^(restart)",
+            "captures": {
+                "1": { "name": "keyword.other.sqllogictest" }
+            }
+        },
+        "load": {
+            "match": "^(load)\\s+([a-zA-Z-_/.]+)",
+            "captures": {
+                "1": { "name": "keyword.other.sqllogictest" },
+                "2": { "name": "string.unquoted.sqllogictest" }
             }
         },
         "mode": {
