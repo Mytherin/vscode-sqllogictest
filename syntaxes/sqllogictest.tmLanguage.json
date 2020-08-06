@@ -130,7 +130,7 @@
             "patterns": [{ "include": "#tsv" }]
         },
         "tsv": {
-            "begin": "^(([a-zA-Z0-9-_]+\t)*)([a-zA-Z0-9-_]+)$",
+            "begin": "^(([^\t\n]+\t)*)([^\t\n]+)$",
             "end": "^$",
             "beginCaptures": {
                 "1": { "name": "constant.numeric.sqllogictest" },
