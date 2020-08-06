@@ -1,0 +1,53 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "duckbenchmark",
+	"patterns": [
+        { "include": "#comment" },
+        { "include": "#load" },
+        { "include": "#run" },
+        { "include": "#result" }
+	],
+	"repository": {
+        "comment": {
+            "patterns": [{
+                "name": "comment.line.duckbenchmark",
+                "match": "(^|\\G\\s+)#.*$"
+            }]
+        },
+        "load": {
+            "begin": "^(load)$",
+            "end": "^$",
+            "beginCaptures": {
+                "1": { "name": "keyword.other.duckbenchmark" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.duckbenchmark" }
+            },
+            "patterns": [{ "include": "source.sql" }]
+        },
+        "run": {
+            "begin": "^(run)$",
+            "end": "^$",
+            "beginCaptures": {
+                "1": { "name": "keyword.other.duckbenchmark" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.duckbenchmark" }
+            },
+            "patterns": [{ "include": "source.sql" }]
+        },
+        "result": {
+            "begin": "^(result)\\s+I+$",
+            "end": "^$",
+            "beginCaptures": {
+                "1": { "name": "keyword.other.duckbenchmark" },
+                "2": { "name": "keyword.other.duckbenchmark" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.duckbenchmark" }
+            },
+            "patterns": [{ "include": "source.sql" }]
+        }
+	},
+	"scopeName": "source.duckbenchmark"
+}

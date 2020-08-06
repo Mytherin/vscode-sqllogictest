@@ -16,33 +16,60 @@
     "main": "./out/extension.js",
     "activationEvents": ["*"],
     "contributes": {
-        "languages": [{
-            "id": "sqllogictest",
-            "aliases": ["Sqllogictest", "sqllogictest"],
-            "extensions": [".slt"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "sqllogictest",
-            "scopeName": "source.sqllogictest",
-            "path": "./syntaxes/sqllogictest.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "sqllogictest",
+                "aliases": [
+                    "sqllogictest",
+                    "Sqllogictest"
+                ],
+                "extensions": [
+                    ".slt",
+                    ".test",
+                    ".test_slow"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "duckbenchmark",
+                "aliases": [
+                    "DuckBenchmark",
+                    "duckbenchmark"
+                ],
+                "extensions": [
+                    ".benchmark"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "sqllogictest",
+                "scopeName": "source.sqllogictest",
+                "path": "./syntaxes/sqllogictest.tmLanguage.json"
+            },
+            {
+                "language": "duckbenchmark",
+                "scopeName": "source.duckbenchmark",
+                "path": "./syntaxes/benchmark.tmLanguage.json"
+            }
+        ]
     },
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.38.0",
-		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
-		"typescript": "^3.3.1",
-		"tslint": "^5.12.1",
-		"vscode-test": "^1.0.2"
-	}
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "yarn run compile"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^10.12.21",
+        "@types/vscode": "^1.38.0",
+        "glob": "^7.1.4",
+        "mocha": "^6.1.4",
+        "typescript": "^3.3.1",
+        "tslint": "^5.12.1",
+        "vscode-test": "^1.0.2"
+    }
 }
