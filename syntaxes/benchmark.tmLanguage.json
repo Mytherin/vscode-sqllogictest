@@ -46,7 +46,28 @@
             "endCaptures": {
                 "0": { "name": "keyword.operator.duckbenchmark" }
             },
-            "patterns": [{ "include": "source.sql" }]
+            "patterns": [{ "include": "#tsv" }]
+        },
+        "tsv": {
+            "begin": "^(([a-zA-Z0-9-_]+\t)*)([a-zA-Z0-9-_]+)$",
+            "end": "^$",
+            "beginCaptures": {
+                "1": { "name": "constant.numeric.sqllogictest" },
+                "2": { "name": "constant.numeric.sqllogictest" },
+                "3": { "name": "constant.numeric.sqllogictest" },
+                "4": { "name": "constant.numeric.sqllogictest" },
+                "5": { "name": "constant.numeric.sqllogictest" },
+                "6": { "name": "constant.numeric.sqllogictest" },
+                "7": { "name": "constant.numeric.sqllogictest" },
+                "8": { "name": "constant.numeric.sqllogictest" },
+                "9": { "name": "constant.numeric.sqllogictest" },
+                "10": { "name": "constant.numeric.sqllogictest" },
+                "11": { "name": "constant.numeric.sqllogictest" },
+                "12": { "name": "constant.numeric.sqllogictest" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.duckbenchmark" }
+            }
         }
 	},
 	"scopeName": "source.duckbenchmark"

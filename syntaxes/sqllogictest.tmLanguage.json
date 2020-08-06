@@ -11,6 +11,7 @@
         { "include": "#restart" },
         { "include": "#load" },
         { "include": "#loop" },
+        { "include": "#query-result" },
         { "include": "#endloop" },
         { "include": "#onlyif" },
         { "include": "#query" },
@@ -98,7 +99,7 @@
         },
         "query": {
             "begin": "^(query)\\s+(?:(error)\\s+(.*)|([A-Z]+)(?:\\s+(\\S+))?(?:\\s+(\\S+))?.*)$",
-            "end": "^----$|^$",
+            "end": "^--|^$",
             "beginCaptures": {
                 "1": { "name": "keyword.other.sqllogictest" },
                 "2": { "name": "keyword.other.sqllogictest" },
@@ -116,6 +117,39 @@
                 "0": { "name": "keyword.operator.sqllogictest" }
             },
             "patterns": [{ "include": "source.sql" }]
+        },
+        "query-result": {
+            "begin": "--$",
+            "end": "^$",
+            "beginCaptures": {
+                "0": { "name": "keyword.operator.sqllogictest" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.sqllogictest" }
+            },
+            "patterns": [{ "include": "#tsv" }]
+        },
+        "tsv": {
+            "begin": "^(([a-zA-Z0-9-_]+\t)*)([a-zA-Z0-9-_]+)$",
+            "end": "^$",
+            "beginCaptures": {
+                "1": { "name": "constant.numeric.sqllogictest" },
+                "2": { "name": "constant.numeric.sqllogictest" },
+                "3": { "name": "constant.numeric.sqllogictest" },
+                "4": { "name": "constant.numeric.sqllogictest" },
+                "5": { "name": "constant.numeric.sqllogictest" },
+                "6": { "name": "constant.numeric.sqllogictest" },
+                "7": { "name": "constant.numeric.sqllogictest" },
+                "8": { "name": "constant.numeric.sqllogictest" },
+                "9": { "name": "constant.numeric.sqllogictest" },
+                "10": { "name": "constant.numeric.sqllogictest" },
+                "11": { "name": "constant.numeric.sqllogictest" },
+                "12": { "name": "constant.numeric.sqllogictest" }
+            },
+            "endCaptures": {
+                "0": { "name": "keyword.operator.duckbenchmark" }
+            },
+            "patterns": [{ "include": "#tsv" }]
         },
         "query-options-standard": {
             "match": "(colnames|nosort|rowsort|valuesort|retry)",
