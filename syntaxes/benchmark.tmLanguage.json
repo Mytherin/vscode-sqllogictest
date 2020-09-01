@@ -55,7 +55,7 @@
             "patterns": [{ "include": "source.sql" }]
         },
         "result": {
-            "begin": "^(result)\\s+I+$",
+            "begin": "^(result)\\s+([a-zA-Z-_0-9/.]+)$",
             "end": "^$",
             "beginCaptures": {
                 "1": { "name": "keyword.other.duckbenchmark" },
