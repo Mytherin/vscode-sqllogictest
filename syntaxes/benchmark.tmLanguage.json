@@ -4,9 +4,7 @@
 	"patterns": [
         { "include": "#comment" },
         { "include": "#load" },
-        { "include": "#run" },
         { "include": "#require" },
-        { "include": "#cache" },
         { "include": "#result" }
 	],
 	"repository": {
@@ -17,7 +15,7 @@
             }]
         },
         "load": {
-            "begin": "^(load)$",
+            "begin": "^(load|init|cleanup|run)\\s*([a-zA-Z-_0-9]*)$",
             "end": "^$",
             "beginCaptures": {
                 "1": { "name": "keyword.other.duckbenchmark" }
@@ -28,31 +26,12 @@
             "patterns": [{ "include": "source.sql" }]
         },
         "require": {
-            "match": "^(require)\\s+([a-zA-Z-_0-9]+)",
+            "match": "^(require|cache)\\s+([a-zA-Z-_0-9]+)",
             "captures": {
                 "1": { "name": "keyword.other.sqllogictest" },
                 "2": { "name": "keyword.other.sqllogictest" },
                 "3": { "name": "constant.numeric.sqllogictest" }
             }
-        },
-        "cache": {
-            "match": "^(cache)\\s+([a-zA-Z-_0-9]+)",
-            "captures": {
-                "1": { "name": "keyword.other.sqllogictest" },
-                "2": { "name": "keyword.other.sqllogictest" },
-                "3": { "name": "constant.numeric.sqllogictest" }
-            }
-        },
-        "run": {
-            "begin": "^(run)$",
-            "end": "^$",
-            "beginCaptures": {
-                "1": { "name": "keyword.other.duckbenchmark" }
-            },
-            "endCaptures": {
-                "0": { "name": "keyword.operator.duckbenchmark" }
-            },
-            "patterns": [{ "include": "source.sql" }]
         },
         "result": {
             "begin": "^(result)\\s+([a-zA-Z-_0-9/.]+)$",
